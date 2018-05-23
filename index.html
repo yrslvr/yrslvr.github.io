@@ -6,10 +6,17 @@
   VK.init(function() { 
      // API initialization succeeded 
      // Your code here 
-    VK.callMethod('showAppWidgetPreviewBox', 'text', 'return { 
-        "title": "Цитата", 
-        "text": "Текст цитаты" 
-    };');
+    let data = {  
+      "title": "Цитата дня",  
+      "title_url": "https://vk.com/app123456",  
+      "title_counter": 42,  
+      "more": "Читать все цитаты",  
+      "more_url": "https://vk.com/app123456#act=read_all", 
+      "text": "«Нам нужно гордиться»",  
+      "descr": "Дэвид Кэмерон о победе сторонников выхода страны\n из Евросоюза на референдуме",  
+    } 
+
+    VK.callMethod("showAppWidgetPreviewBox", 'text', 'return ' + JSON.stringify(data) + ';') 
   }, function() { 
      // API initialization failed 
      // Can reload page here 
